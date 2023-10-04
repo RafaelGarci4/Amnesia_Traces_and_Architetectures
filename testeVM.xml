@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE AmnesiaConfiguration SYSTEM "Configuration/amnesia.dtd">
+<?xml-stylesheet type="text/css" href="teste.css"?>
+
+<AmnesiaConfiguration>
+    <Processor>
+        <!-- Define se o processador contém algum elemento. -->
+        <processorContains>0</processorContains>
+        <!-- Define se um arquivo de rastreamento deve ser criado. -->
+        <createTraceFile>0</createTraceFile>
+    </Processor>
+    <Trace>
+        <!-- Tamanho da palavra em Bytes, modificações substituir os dois valores -->
+        <wordSize>4</wordSize>
+    </Trace>
+    <CPU>
+        <!-- Tamanho da palavra em Bytes, modificações substituir os dois valores -->
+        <wordSize>4</wordSize>
+    </CPU>
+    <!-- Memória principal -->
+    <MainMemory>
+        <!-- Tamanho do bloco em Bytes, manter valor de blockSize igual ao valor lineSize -->
+        <blockSize>2</blockSize>
+        <!-- Tamanho total da memória principal em Bytes -->
+        <memorySize>32</memorySize>
+        <!-- Ciclos por acesso de leitura -->
+        <ciclesPerAccessRead>1</ciclesPerAccessRead>
+        <!-- Ciclos por acesso de escrita -->
+        <ciclesPerAccessWrite>2</ciclesPerAccessWrite>
+        <!-- Tempo por ciclo em nanossegundos -->
+        <timeCicle>10</timeCicle>
+    </MainMemory>
+
+    <Cache>
+        <!-- Os tipos de cache possíveis são Unified e Split -->
+        <cacheType>Unified</cacheType>
+        <unifiedCache>
+            <!-- valores em Bytes manter valor de blockSize igual o valor lineSize -->
+            <lineSize>2</lineSize>
+            <ciclesPerAccessRead>1</ciclesPerAccessRead>
+            <ciclesPerAccessWrite>2</ciclesPerAccessWrite>
+            <timeCicle>1</timeCicle>
+            <memorySize>4</memorySize>
+            <associativityLevel>2</associativityLevel>
+            <!-- Política de Escrita valores possíveis WriteBack e WriteThrough -->
+            <writePolicy>WriteBack</writePolicy>
+            <!-- Algoritmos de substituição valores possíveis LRU e FIFO -->
+            <replacementAlgorithm>FIFO</replacementAlgorithm>
+        </unifiedCache>
+    </Cache>
+
+    <VirtualMemory>
+        <!-- Tamanho da página em Bytes, deve ser múltiplo de 2 e menor que o tamanho da memória principal -->
+        <pageSize>4</pageSize>
+        <!-- Tamanho da memória do disco em Bytes, múltiplo do tamanho de uma página -->
+        <diskMemorySize>16</diskMemorySize>
+        <!-- Ciclos por acesso de leitura no disco -->
+        <diskCiclesPerAccessRead>1</diskCiclesPerAccessRead>
+        <!-- Ciclos por acesso de escrita no disco -->
+        <diskCiclesPerAccessWrite>2</diskCiclesPerAccessWrite>
+        <!-- Tempo por ciclo em nanossegundos -->
+        <timeCicle>100</timeCicle>
+        <!-- Algoritmo de substituição da tabela de páginas, valores possíveis: NRU, LRU e FIFO -->
+        <pageTableReplacementAlgorithm>FIFO</pageTableReplacementAlgorithm>
+        <TLBType>unified</TLBType>
+
+        <unifiedTLB>
+            <!-- Tamanho da TLB em Bytes, não necessita ser múltiplo de 2 -->
+            <memorySize>4</memorySize>
+            <!-- Ciclos por acesso de leitura na TLB -->
+            <ciclesPerAccessRead>1</ciclesPerAccessRead>
+            <!-- Ciclos por acesso de escrita na TLB -->
+            <ciclesPerAccessWrite>2</ciclesPerAccessWrite>
+            <!-- Tempo por ciclo em nanossegundos -->
+            <timeCicle>1</timeCicle>
+            <!-- Algoritmo de substituição da TLB, valores possíveis: LRU e FIFO -->
+            <replacementAlgorithm>FIFO</replacementAlgorithm>
+        </unifiedTLB>
+    </VirtualMemory>
+</AmnesiaConfiguration>
+<!-- Fim da configuração -->

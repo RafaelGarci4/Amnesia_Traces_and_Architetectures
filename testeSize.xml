@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE AmnesiaConfiguration SYSTEM "Configuration/amnesia.dtd">
+<?xml-stylesheet type="text/css" href="testeCache.css"?>
+
+
+    <!-- Início da configuração -->
+    <AmnesiaConfiguration>
+    <Processor>
+        <processorContains>0</processorContains>
+        <createTraceFile>0</createTraceFile>
+    </Processor>
+    <Trace>
+        <!-- Tamanho da palavra 4 Bytes, modificações substituir os dois valores -->
+        <wordSize>4</wordSize>
+    </Trace>
+    <CPU>
+        <!-- Tamanho da palavra 4 Bytes, modificações substituir os dois valores -->
+        <wordSize>4</wordSize>
+    </CPU>
+    <!-- Memória principal -->
+    <MainMemory>
+        <!-- valores em Bytes manter valor de blockSize igual o valor lineSize -->
+        <blockSize>4</blockSize>
+        <memorySize>16</memorySize>
+        <ciclesPerAccessRead>3</ciclesPerAccessRead>
+        <ciclesPerAccessWrite>4</ciclesPerAccessWrite>
+        <timeCicle>12</timeCicle>
+    </MainMemory>
+    
+    <Cache>
+        <!-- Os tipos de cache possíveis são Unified e Split -->
+        <cacheType>Unified</cacheType>
+        <unifiedCache>
+        <!-- valores em Bytes manter valor de blockSize igual o valor lineSize -->
+        <lineSize>4</lineSize>
+        <ciclesPerAccessRead>1</ciclesPerAccessRead>
+        <ciclesPerAccessWrite>2</ciclesPerAccessWrite>
+        <timeCicle>1</timeCicle>
+        <memorySize>8</memorySize>
+        <associativityLevel>2</associativityLevel>
+        <!-- Política de Escrita valores possíveis WriteBack e WriteThrough -->
+        <writePolicy>WriteThrough</writePolicy>
+        <!-- Algoritmos de substituição valores possíveis LRU e FIFO -->
+        <replacementAlgorithm>FIFO</replacementAlgorithm>
+        </unifiedCache>
+    </Cache>
+    
+    </AmnesiaConfiguration>
